@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Lovely Vue</h1>
     <input v-model="message" />
-    <button @click="add">追加</button>
+    <button :disabled="isDisabled" @click="add">追加</button>
     <br />
     <ul>
       <li v-for="todo in todos" :key="todo.id" class="task-card">
@@ -19,6 +19,11 @@ export default {
     todos: [{ id: 1, text: "ときめき" }],
     message: "Spark joy!"
   }),
+  computed: {
+    isDisabled() {
+      return this.message.length === 0;
+    }
+  },
   methods: {
     add() {
       const newTodo = {
