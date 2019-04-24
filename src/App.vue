@@ -4,15 +4,20 @@
     <input v-model="message" />
     <button :disabled="isDisabled" @click="add">追加</button>
     <br />
-    <ul>
-      <TaskCard
-        v-for="todo in todos"
-        :id="todo.id"
-        :key="todo.id"
-        :text="todo.text"
-        @remove-task="remove"
-      />
-    </ul>
+    <template v-if="todos.length === 0">
+      タスクはありません
+    </template>
+    <template v-else>
+      <ul>
+        <TaskCard
+          v-for="todo in todos"
+          :id="todo.id"
+          :key="todo.id"
+          :text="todo.text"
+          @remove-task="remove"
+        />
+      </ul>
+    </template>
   </div>
 </template>
 
