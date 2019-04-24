@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Lovely Vue</h1>
-    <input @input="onInput" />
+    <input v-model="message" />
     <br />
     {{ message }}
   </div>
@@ -12,13 +12,7 @@ export default {
   name: "App",
   data: () => ({
     message: "Spark joy!"
-  }),
-  methods: {
-    onInput(event) {
-      const text = event.target.value;
-      this.message = text;
-    }
-  }
+  })
 };
 </script>
 
