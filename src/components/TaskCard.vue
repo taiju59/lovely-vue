@@ -20,8 +20,8 @@ export default {
   },
   methods: {
     remove() {
-      // TODO: 削除機能の実装
       console.log(`remove: ${this.id}`);
+      this.$emit("remove-task", this.id);
     }
   }
 };

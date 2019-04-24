@@ -10,6 +10,7 @@
         :id="todo.id"
         :key="todo.id"
         :text="todo.text"
+        @remove-task="remove"
       />
     </ul>
   </div>
@@ -40,6 +41,9 @@ export default {
       };
       this.todos.push(newTodo);
       this.message = "";
+    },
+    remove(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
     }
   }
 };
