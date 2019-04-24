@@ -9,6 +9,10 @@
 export default {
   name: "TaskCard",
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     text: {
       type: String,
       default: ""
@@ -17,7 +21,7 @@ export default {
   methods: {
     remove() {
       // TODO: 削除機能の実装
-      console.log("remove");
+      console.log(`remove: ${this.id}`);
     }
   }
 };

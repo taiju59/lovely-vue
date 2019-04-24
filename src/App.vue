@@ -5,7 +5,12 @@
     <button :disabled="isDisabled" @click="add">追加</button>
     <br />
     <ul>
-      <TaskCard v-for="todo in todos" :key="todo.id" :text="todo.text" />
+      <TaskCard
+        v-for="todo in todos"
+        :id="todo.id"
+        :key="todo.id"
+        :text="todo.text"
+      />
     </ul>
   </div>
 </template>
