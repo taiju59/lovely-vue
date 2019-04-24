@@ -1,23 +1,27 @@
 <template>
   <div id="app">
-    <h1>Lovely Vue</h1>
-    <input v-model="message" />
-    <button :disabled="isDisabled" @click="add">追加</button>
-    <br />
-    <template v-if="todos.length === 0">
-      タスクはありません
-    </template>
-    <template v-else>
-      <ul>
-        <TaskCard
-          v-for="todo in todos"
-          :id="todo.id"
-          :key="todo.id"
-          :text="todo.text"
-          @remove-task="remove"
-        />
-      </ul>
-    </template>
+    <VsCol vs-offset="1">
+      <br />
+      <h1>Lovely Vue</h1>
+      <br />
+      <VsRow>
+        <VsInput v-model="message" size="large" />
+        <VsButton :disabled="isDisabled" class="add_button" @click="add">
+          追加
+        </VsButton>
+      </VsRow>
+      <br />
+      <template v-if="todos.length === 0">
+        <VsRow>
+          タスクはありません
+        </VsRow>
+      </template>
+      <template v-else>
+        <VsRow v-for="todo in todos" :key="todo.id" vs-w="10">
+          <TaskCard :id="todo.id" :text="todo.text" @remove-task="remove" />
+        </VsRow>
+      </template>
+    </VsCol>
   </div>
 </template>
 
@@ -54,4 +58,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.add_button {
+  margin-left: 8px;
+}
+</style>
