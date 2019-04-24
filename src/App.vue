@@ -5,16 +5,19 @@
     <button :disabled="isDisabled" @click="add">追加</button>
     <br />
     <ul>
-      <li v-for="todo in todos" :key="todo.id" class="task-card">
-        {{ todo.text }}
-      </li>
+      <TaskCard v-for="todo in todos" :key="todo.id" :text="todo.text" />
     </ul>
   </div>
 </template>
 
 <script>
+import TaskCard from "@/components/TaskCard.vue";
+
 export default {
   name: "App",
+  components: {
+    TaskCard
+  },
   data: () => ({
     todos: [{ id: 1, text: "ときめき" }],
     message: "Spark joy!"
@@ -37,11 +40,4 @@ export default {
 };
 </script>
 
-<style>
-.task-card {
-  border: solid 1px;
-  margin: 5px;
-  padding: 2px;
-  width: 250px;
-}
-</style>
+<style></style>
